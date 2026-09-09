@@ -30,7 +30,7 @@ const map=L.map("map",{zoomControl:false}).setView([41.95,-87.68],12);L.control.
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"&copy; OpenStreetMap"}).addTo(map);
 const type=document.getElementById("type"),school=document.getElementById("school"),dates=document.getElementById("dates"),sheet=document.getElementById("sheet");
 Object.keys(colors).forEach(g=>{let o=document.createElement("option");o.value=g;o.textContent=g;type.appendChild(o)});
-schools.forEach(s=>{let o=document.createElement("option");o.value=s.id;o.textContent=s.school;school.appendChild(o)});
+[...schools].sort((a,b)=>a.school.localeCompare(b.school)).forEach(s=>{let o=document.createElement("option");o.value=s.id;o.textContent=s.school;school.appendChild(o)});
 document.getElementById("legend").innerHTML=Object.entries(colors).map(([k,v])=>`<span><i class="dot" style="background:${v}"></i>${k}</span>`).join("");
 const months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 [...new Set(schools.map(s=>s.date))].forEach(d=>{let b=document.createElement("button");b.dataset.date=d;b.textContent=d==="TBD"?"Date TBD":months[+d.split("/")[0]-1]+" "+(+d.split("/")[1]);b.onclick=()=>setDate(d);dates.insertBefore(b,type)});
