@@ -1,1 +1,1 @@
-Replace the existing index.html in schooltour2026 with this index.html and commit changes. Registration status researched September 9, 2026; recheck school event pages before attending.
+Master expanded map: includes west-of-Pulaski additions plus ChiArts, and shows verified 2026 Niche grades/ranks in school cards. Replace schooltour2026/index.html with this index.html.
